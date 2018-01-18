@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> Envoie du groupe </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <style>
+
+        body{
+            background-image: url('/static/images/fond.jpg');
+        }
+
+        h1{
+            color: #0B91D0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1> BIENVENUE A LA PAGE D'ENVOIE D'EMAIL </h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                {% for group in group %}
+                    <a href="{% url 'mails.views.group' group.id %}" class="btn btn-info"> Envoie du {{ group.nom }}</a>&nbsp;&nbsp;
+                {% endfor %}
+                <a href="{% url 'mails.views.email' %}" class="btn btn-primary"> Envoie à tous les utilisateurs </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

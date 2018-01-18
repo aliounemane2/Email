@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <style>
+
+        body{
+            background-image: url('/static/images/fond.jpg');
+        }
+
+        h1{
+            color: #0B91D0;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+    // Evénement onClick
+
+    function clique(){
+        //var valeurs = new Array();
+        //var valeurs = []
+
+        valeurs = "";
+        aa = $("#selections input:checked[type='checkbox']").length;
+
+        $("#selections input:checked[type='checkbox']").each(function(){
+            //valeurs.push($(this).val())+';';
+            if (valeurs != "")
+               valeurs = valeurs+",";
+
+            valeurs = valeurs+($(this).val());
+        });
+        console.log(valeurs);
+        //alert(valeurs);
+
+         // Code ajax à décommenter
+        $.ajax({
+            url: "{% url 'mails.views.sendselectiongroup' %}",
+            type: "POST",
+            data: {
+                "csrfmiddlewaretoken": "{{csrf_token}}",
+                "valeurs": valeurs,
+                },
+            success: function(json){
+                //alert(valeurs);
+                //alert('success');
+                //console.log('Success '+valeurs);
+                console.log(json)
+                //alert("success"+valeurs);
+
+            },
+            error: function(error){
+                alert(' Erreurs '+error);
+                console.log(' Erreurs '+error);
+            },
+        });
+
+
+
+    }
+
+
+    </script>
+
+</head>
+<body>
+        <h1>La Page de la Séléction du Groupe</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <!-- <p><label><input type="checkbox" id="checkAll"/> Tout coché </label></p> -->
+                    {% for selection in selection %}
+                        <form method="post"  role="form" id="selections" class="selections">
+                            {% csrf_token %}
+                                <label><input id="selection" type="checkbox" href="{% url 'mails.views.group' selection.id %}" value="{{selection.id}}" />
+                                    Envoie du {{ selection.nom }} </label><br/>
+                    {% endfor %}
+                            <button class="btn btn-primary" type="button" id="validation"  onclick="clique();"> Envoyer </button>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

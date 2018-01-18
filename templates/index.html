@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color: gray;
+            color: red;
+        }
+        div, #globale{
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+        <!--<img src=" {% static "Kamal.png" %}" alt="image"/>-->
+         <!-<img src="{% static 'Kamal.png' %}" alt="image"/>-->
+        <div id="globale">
+            <p>
+                Convert the filename, content, mimetype triple into a MIME attachment
+                object. Adjust headers to use Content-ID where applicable.
+                HTML is the method of choice for those wishing to send emails with rich
+                text, layout and graphics. Often it is desirable to embed the graphics
+                within the message so recipients can display the message directly,
+                without further downloads.
+                Some mail agents don't support HTML or their users prefer to receive
+                plain text messages. Senders of HTML messages should include a plain
+                text message as an alternate for these users.
+                <img src="http://www.emc2-group.com/templates/emc2/images/logo.gif" alt=""/>
+                This recipe sends a short HTML message with a single embedded image
+                and an alternate plain text message.
+            </p>
+            <h3>Message Reussi avec Image</h3>
+        </div>
+</body>
+</html>

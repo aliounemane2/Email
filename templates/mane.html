@@ -1,0 +1,88 @@
+{% extends "easy_pdf/base.html" %}
+
+{% block extra_style %}
+    <style type="text/css">
+        @font-face { font-family: Lato; src: url(fonts/Lato-Reg.ttf); }
+        body {
+            font-family: "Lato", "Helvetica", "sans-serif";
+            color: #333333;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!--<div id="content">-->
+        <!--<div class="main">-->
+            <!--<h1>cc</h1>-->
+            <!--<h2>zefzf</h2>-->
+            <!--<h3>zfzef</h3>-->
+        <!--</div>-->
+    <!--</div>   -->
+
+   <h1> Nom de la societe : XXXXXXXXX<br/>
+    CP Ville: XXXXXXXX<br/>
+    Telephone : XXXXXXX<br/>
+    Fax: 15654111412<br/>
+    N SIRET : N SIRET</h1>
+
+    <h2 style="margin-left : 30 %">
+
+        Facture: xxxxxx<br/>
+        Societe ou Nom Client: xxxxx<br/>
+        Adresse: xxxxxxx<br/>
+        CP Ville: xxxxxx<br/>
+
+    </h2>
+
+    <h1 style="color:red;">
+
+        Date : JJ/MM/AAAA<br/>
+        Reference : Description du projet et/ou Produit facture<br/>
+        Numero de facture : Numero de facture<br/>
+
+    </h1>
+
+    <table border="1">
+
+        <tr>
+            <th>Designation</th>
+            <th>Quantite</th>
+            <th>Prix unitaire HT</th>
+            <th>Prix total HT</th>
+        </tr><br/>
+        <tr>
+            <td>Designation produit/service</td>
+            <td> Quantite Duree de travail </td>
+            <td>Prix unitaire hors taxe </td>
+            <td>Prix total hors taxe (=quantite x prix unitaire)</td>
+        </tr><br/>
+
+        <tr>
+            <td>Total Hors Taxe</td>
+            <td>sdecnznc</td>
+            <td> </td>
+            <td>00 Fcfa </td>
+        </tr><br/>
+
+
+    </table>
+
+
+    <h2>
+        Conditions de paiement : a la reception, a 30 jours...<br/>
+    </h2>
+
+
+   <h3>
+        Eventuellement :<br/>
+        coordonnees bancaires<br/>
+        penalites en cas de retard<br/>
+        mode de reglement accepte<br/>
+   </h3>
+
+
+
+
+
+
+{% endblock %}
